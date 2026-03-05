@@ -1,0 +1,50 @@
+{
+  "applications": [],
+  "positions": [
+    {
+      "id": 1,
+      "title": "Household Worker",
+      "countries": ["Qatar", "UAE", "Kuwait"],
+      "salaryUsd": "400-500",
+      "priority": "Most Applied"
+    },
+    {
+      "id": 2,
+      "title": "House Cook",
+      "countries": ["Qatar", "UAE", "Kuwait"],
+      "salaryUsd": "400-500",
+      "priority": "Urgent"
+    },
+    {
+      "id": 3,
+      "title": "Nanny",
+      "countries": ["Qatar", "UAE", "Kuwait"],
+      "salaryUsd": "400-500",
+      "priority": "Immediate"
+    },
+    {
+      "id": 4,
+      "title": "Lady Driver",
+      "countries": ["Qatar", "UAE", "Kuwait"],
+      "salaryUsd": "400-500",
+      "priority": "Priority"
+    }
+  ],
+  "specialists": [
+    {
+      "id": 1,
+      "name": "Abby",
+      "contact": "639858931972"
+    },
+    {
+      "id": 2,
+      "name": "Jhenny",
+      "contact": "639565189578"
+    },
+    {
+      "id": 3,
+      "name": "Maricon",
+      "contact": "639622721617"
+    }
+  ]
+}

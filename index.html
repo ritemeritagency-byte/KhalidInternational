@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khalid International | Apply for Overseas Jobs</title>
+    <meta
+      name="description"
+      content="Apply easily for overseas jobs with Khalid International. 100% free placement, guided processing, and direct WhatsApp support."
+    />
+    <meta name="theme-color" content="#0f4c81" />
+    <link rel="manifest" href="./manifest.json" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&family=Sora:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <button class="mobile-nav-toggle" id="mobileNavToggle" type="button" aria-label="Open menu">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+      <a href="#home" class="brand">
+        <span class="brand-icon"><i class="fa-solid fa-earth-asia" aria-hidden="true"></i></span>
+        <span>Khalid International</span>
+      </a>
+      <nav class="top-links">
+        <a href="#about" data-i18n="nav_about">About</a>
+        <a href="#jobs" data-i18n="nav_positions">Positions</a>
+        <a href="#process" data-i18n="nav_process">Process</a>
+        <a href="#support" data-i18n="nav_support">Support</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <div class="top-actions">
+        <div class="lang-switch" id="langSwitch">
+          <button class="lang-toggle" id="langToggle" type="button" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-language" aria-hidden="true"></i>
+            <span id="langCurrent">English</span>
+            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="lang-menu" id="langMenu">
+            <button class="lang-option" type="button" data-lang="EN">English</button>
+            <button class="lang-option" type="button" data-lang="TL">Tagalog</button>
+            <button class="lang-option" type="button" data-lang="CEB">Cebuano</button>
+          </div>
+        </div>
+        <button class="top-apply" id="openApplyModal" type="button" data-i18n="apply_now">Apply Now</button>
+      </div>
+    </header>
+
+    <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+    <aside class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <div class="mobile-nav-head">
+        <strong data-i18n="mobile_menu">Menu</strong>
+        <button class="mobile-nav-close" id="mobileNavClose" type="button" aria-label="Close menu">&times;</button>
+      </div>
+      <nav class="mobile-nav-links">
+        <a href="#about" data-i18n="nav_about">About</a>
+        <a href="#jobs" data-i18n="nav_positions">Positions</a>
+        <a href="#process" data-i18n="nav_process">Process</a>
+        <a href="#support" data-i18n="nav_support">Support</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+    </aside>
+
+    <main id="home">
+      <section class="hero">
+        <div class="hero-text">
+          <p class="hero-kicker" data-i18n="hero_kicker">100% Free Placement</p>
+          <h1 data-i18n="hero_title">Apply in Minutes, Start Your Overseas Journey Faster.</h1>
+          <p data-i18n="hero_desc">
+            We guide applicants from registration to deployment for UAE, Qatar,
+            and Kuwait opportunities.
+          </p>
+          <div class="hero-actions">
+            <button class="btn-primary" id="openApplyFromHero" type="button" data-i18n="start_application">Start Application</button>
+            <button class="btn-call" id="openCallRequest" type="button" data-i18n="receive_call">Receive a Call</button>
+            <button class="btn-install" id="installAppButton" data-install-app type="button" data-i18n="install_app" hidden>
+              Download App
+            </button>
+            <a class="btn-ghost" href="#jobs" data-i18n="view_positions">View Positions</a>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <p class="hero-panel-kicker" data-i18n="hero_panel_kicker">Latest Deployment</p>
+          <h2 data-i18n="hero_panel_title">Jan 28, 2026 Success</h2>
+          <figure class="hero-deployment-photo">
+            <img
+              src="./photos/deployed%20Jan%2028,%202026.jpg"
+              alt="Khalid International deployment on January 28, 2026"
+              loading="lazy"
+            />
+          </figure>
+          <p class="hero-panel-note" data-i18n="hero_panel_note">
+            Real applicant deployment with complete processing guidance.
+          </p>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="trust highlights">
+        <article>
+          <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+          <span data-i18n="trust_dmw">DMW Licensed Agency</span>
+        </article>
+        <article>
+          <i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i>
+          <span data-i18n="trust_zero_fee">No Placement Fee Collection</span>
+        </article>
+        <article>
+          <i class="fa-solid fa-award" aria-hidden="true"></i>
+          <span data-i18n="trust_since">Serving Since 1999</span>
+        </article>
+      </section>
+
+      <section class="mission-vision" id="about">
+        <div class="section-head">
+          <p data-i18n="mission_kicker">MISSION & VISION</p>
+          <h2 data-i18n="mission_heading">Building Safer and Faster Overseas Careers</h2>
+        </div>
+        <div class="mission-grid">
+          <article class="mission-card mission-card-primary">
+            <figure class="mission-photo">
+              <img src="./photos/Khalid%20Deployment%20(1).jpg" alt="Khalid International team assisting applicants" loading="lazy" />
+            </figure>
+            <h3 data-i18n="mission_title">Our Mission</h3>
+            <p data-i18n="mission_desc">
+              To provide ethical, transparent, and applicant-focused recruitment support so every Filipino worker can access legitimate overseas opportunities with confidence.
+            </p>
+          </article>
+          <article class="mission-card mission-card-secondary">
+            <figure class="mission-photo">
+              <img src="./photos/Khalid%20Deployed%20Dec%2022,%202025.jpeg" alt="Deployed Filipino workers celebrating success" loading="lazy" />
+            </figure>
+            <h3 data-i18n="vision_title">Our Vision</h3>
+            <p data-i18n="vision_desc">
+              To become one of the most trusted DMW-compliant recruitment agencies known for guided deployment, zero placement fee commitment, and long-term worker welfare.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="positions" id="jobs">
+        <div class="section-head">
+          <p data-i18n="positions_kicker">AVAILABLE POSITIONS</p>
+          <h2 data-i18n="positions_title">Choose a Role You Can Start With Confidence</h2>
+        </div>
+
+        <div class="position-grid">
+          <article class="position-card demand-high">
+            <div class="position-tag" data-i18n="tag_most_applied">Most Applied</div>
+            <figure class="position-photo">
+              <img src="./positionphotos/Household%20Worker%20Position.png" alt="Household worker deployment highlight" loading="lazy" />
+              <figcaption class="position-photo-caption">
+                <h3>Household Worker</h3>
+              </figcaption>
+            </figure>
+            <p data-i18n="country_all_hiring">Qatar / UAE / Kuwait</p>
+            <p class="salary-range">USD 400 - 500</p>
+            <div class="role-meta-chips">
+              <span class="role-chip" data-i18n="meta_fast_lane">Processing: Fast lane</span>
+              <span class="role-chip" data-i18n="meta_last_updated_today">Last updated: Today</span>
+            </div>
+            <button class="apply-position" data-position="Household Worker" type="button" data-i18n="apply_role">Apply for this role</button>
+          </article>
+
+          <article class="position-card demand-urgent">
+            <div class="position-tag" data-i18n="tag_urgent">Urgent</div>
+            <figure class="position-photo">
+              <img src="./positionphotos/House%20Cook.png" alt="House cook applicant support preview" loading="lazy" />
+              <figcaption class="position-photo-caption">
+                <h3>House Cook</h3>
+              </figcaption>
+            </figure>
+            <p data-i18n="country_all_hiring">Qatar / UAE / Kuwait</p>
+            <p class="salary-range">USD 400 - 500</p>
+            <div class="role-meta-chips">
+              <span class="role-chip" data-i18n="meta_priority">Processing: Priority</span>
+              <span class="role-chip" data-i18n="meta_last_updated_today">Last updated: Today</span>
+            </div>
+            <button class="apply-position" data-position="House Cook" type="button" data-i18n="apply_role">Apply for this role</button>
+          </article>
+
+          <article class="position-card demand-fast">
+            <div class="position-tag" data-i18n="tag_immediate">Immediate</div>
+            <figure class="position-photo">
+              <img src="./positionphotos/Nanny.png" alt="Nanny role preparation material preview" loading="lazy" />
+              <figcaption class="position-photo-caption">
+                <h3>Nanny</h3>
+              </figcaption>
+            </figure>
+            <p data-i18n="country_all_hiring">Qatar / UAE / Kuwait</p>
+            <p class="salary-range">USD 400 - 500</p>
+            <div class="role-meta-chips">
+              <span class="role-chip" data-i18n="meta_fast_lane">Processing: Fast lane</span>
+              <span class="role-chip" data-i18n="meta_last_updated_today">Last updated: Today</span>
+            </div>
+            <button class="apply-position" data-position="Nanny" type="button" data-i18n="apply_role">Apply for this role</button>
+          </article>
+
+          <article class="position-card demand-priority">
+            <div class="position-tag" data-i18n="tag_priority">Priority</div>
+            <figure class="position-photo">
+              <img src="./positionphotos/Lady%20Driver.png" alt="Lady driver orientation material preview" loading="lazy" />
+              <figcaption class="position-photo-caption">
+                <h3>Lady Driver</h3>
+              </figcaption>
+            </figure>
+            <p data-i18n="country_all_hiring">Qatar / UAE / Kuwait</p>
+            <p class="salary-range">USD 400 - 500</p>
+            <div class="role-meta-chips">
+              <span class="role-chip" data-i18n="meta_standard">Processing: Standard</span>
+              <span class="role-chip" data-i18n="meta_last_updated_today">Last updated: Today</span>
+            </div>
+            <button class="apply-position" data-position="Lady Driver" type="button" data-i18n="apply_role">Apply for this role</button>
+          </article>
+
+        </div>
+      </section>
+
+      <section class="deployments" id="team">
+        <div class="section-head">
+          <p data-i18n="deployments_kicker">RECENT DEPLOYMENTS</p>
+          <h2 data-i18n="deployments_title">Real Applicant Success Highlights</h2>
+        </div>
+        <div class="deployment-grid">
+          <figure class="success-photo">
+            <img src="./photos/Khalid%20Deployed%20Dec%2022,%202025.jpeg" alt="Deployed batch highlight" loading="lazy" />
+            <figcaption data-i18n="caption_batch_success">Batch Success</figcaption>
+          </figure>
+          <figure class="success-photo">
+            <img src="./photos/Khalid%20Deployment%20(1).jpg" alt="Deployment team support" loading="lazy" />
+            <figcaption data-i18n="caption_airport_sendoff">Airport Send-Off</figcaption>
+          </figure>
+          <figure class="success-photo">
+            <img src="./photos/deploy%202026.jpg" alt="2026 deployment milestone" loading="lazy" />
+            <figcaption data-i18n="caption_2026_milestone">2026 Milestone</figcaption>
+          </figure>
+          <figure class="success-photo">
+            <img src="./photos/Deployment%20(3).jpg" alt="Successful deployed applicant" loading="lazy" />
+            <figcaption data-i18n="caption_new_deployment_team">New Deployment Team</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="testimonials" id="testimonials">
+        <div class="section-head">
+          <p data-i18n="testimonials_kicker">APPLICANT TESTIMONIES</p>
+          <h2 data-i18n="testimonials_title">What Our Deployed Applicants Say</h2>
+        </div>
+
+        <div class="testimonial-grid">
+          <article class="testimonial-card">
+            <div class="floating-avatars">
+              <img src="./photos/Khalid%20Deployment%20(1).jpg" alt="Applicant profile photo" loading="lazy" />
+              <img src="./photos/Khalid%20Deployed%20Dec%2022,%202025.jpeg" alt="Applicant profile photo" loading="lazy" />
+              <img src="./photos/deploy%202026.jpg" alt="Applicant profile photo" loading="lazy" />
+            </div>
+            <p>
+              "Very fast process and no placement fee. The specialist guided me
+              until my flight schedule."
+            </p>
+            <div class="testimonial-stars" aria-label="5 star rating">
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <span>5.0</span>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="floating-avatars">
+              <img src="./photos/Deployment%20(3).jpg" alt="Applicant profile photo" loading="lazy" />
+              <img src="./photos/deployed%20Jan%2028,%202026.jpg" alt="Applicant profile photo" loading="lazy" />
+              <img src="./photos/Khalid%20Deployment%20(1).jpg" alt="Applicant profile photo" loading="lazy" />
+            </div>
+            <p>
+              "Legit agency and organized support team. They kept me updated
+              from requirements to deployment."
+            </p>
+            <div class="testimonial-stars" aria-label="5 star rating">
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <span>5.0</span>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="floating-avatars">
+              <img src="./photos/deploy%202026.jpg" alt="Applicant profile photo" loading="lazy" />
+              <img src="./photos/Khalid%20Deployed%20Dec%2022,%202025.jpeg" alt="Applicant profile photo" loading="lazy" />
+              <img src="./photos/Deployment%20(3).jpg" alt="Applicant profile photo" loading="lazy" />
+            </div>
+            <p>
+              "Smooth coordination with the team. I felt secure because all
+              steps were clearly explained."
+            </p>
+            <div class="testimonial-stars" aria-label="5 star rating">
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <span>5.0</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="materials" id="materials">
+        <div class="section-head">
+          <p data-i18n="materials_kicker">DEPLOYED WORKERS</p>
+          <h2 data-i18n="materials_title">Featured Deployed Worker Highlights</h2>
+        </div>
+        <div class="materials-grid">
+          <figure class="material-card">
+            <img src="./photos/material%201.jpeg" alt="Deployed worker highlight photo 1" loading="lazy" />
+            <figcaption data-i18n="mat1_caption">Deployed Worker Highlight 1</figcaption>
+          </figure>
+          <figure class="material-card">
+            <img src="./photos/material%202.jpeg" alt="Deployed worker highlight photo 2" loading="lazy" />
+            <figcaption data-i18n="mat2_caption">Deployed Worker Highlight 2</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="videos" id="videos">
+        <div class="section-head">
+          <p data-i18n="videos_kicker">SUCCESS VIDEOS</p>
+          <h2 data-i18n="videos_title">Watch Real Applicant Stories</h2>
+        </div>
+        <div class="video-grid">
+          <article class="video-card">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/0JK5pkQpApk?modestbranding=1&rel=0&playsinline=1&iv_load_policy=3"
+              title="Applicant success video 1"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </article>
+          <article class="video-card">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/P-opmwZJZEM?modestbranding=1&rel=0&playsinline=1&iv_load_policy=3"
+              title="Applicant success video 2"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </article>
+          <article class="video-card">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/mudlU-PW1vA?modestbranding=1&rel=0&playsinline=1&iv_load_policy=3"
+              title="Applicant success video 3"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </article>
+        </div>
+      </section>
+
+      <section class="process" id="process">
+        <div class="section-head">
+          <p data-i18n="process_kicker">HOW IT WORKS</p>
+          <h2 data-i18n="process_title">Simple Steps From Application to Deployment</h2>
+        </div>
+        <div class="process-grid">
+          <article>
+            <span>1</span>
+            <h3 data-i18n="step1_title">Apply Online</h3>
+            <p data-i18n="step1_desc">Fill out your profile and choose your preferred role.</p>
+          </article>
+          <article>
+            <span>2</span>
+            <h3 data-i18n="step2_title">Specialist Review</h3>
+            <p data-i18n="step2_desc">Our team checks your profile and gives requirements guidance.</p>
+          </article>
+          <article>
+            <span>3</span>
+            <h3 data-i18n="step3_title">Schedule Call</h3>
+            <p data-i18n="step3_desc">Coordinate with your selected specialist for next actions.</p>
+          </article>
+          <article>
+            <span>4</span>
+            <h3 data-i18n="step4_title">Deployment Prep</h3>
+            <p data-i18n="step4_desc">Get final assistance until your deployment schedule.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="support" id="support">
+        <div class="section-head">
+          <p data-i18n="support_kicker">SUPPORT TEAM</p>
+          <h2 data-i18n="support_title">Message a Specialist Directly</h2>
+        </div>
+        <div class="support-grid" id="status">
+          <article class="specialist-card" data-rep-card="Abby">
+            <div class="specialist-head">
+              <span class="specialist-avatar" aria-hidden="true"><i class="fa-solid fa-user-nurse"></i></span>
+              <div>
+                <h3>Abby</h3>
+                <p data-i18n="specialist_role">Support Specialist</p>
+              </div>
+            </div>
+            <a class="specialist-chat" id="abbyLink" href="#" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              <span data-i18n="message_abby">Message Abby</span>
+            </a>
+          </article>
+          <article class="specialist-card" data-rep-card="Jhenny">
+            <div class="specialist-head">
+              <span class="specialist-avatar" aria-hidden="true"><i class="fa-solid fa-user-nurse"></i></span>
+              <div>
+                <h3>Jhenny</h3>
+                <p data-i18n="specialist_role">Support Specialist</p>
+              </div>
+            </div>
+            <a class="specialist-chat" id="jhennyLink" href="#" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              <span data-i18n="message_jhenny">Message Jhenny</span>
+            </a>
+          </article>
+          <article class="specialist-card" data-rep-card="Maricon">
+            <div class="specialist-head">
+              <span class="specialist-avatar" aria-hidden="true"><i class="fa-solid fa-user-nurse"></i></span>
+              <div>
+                <h3>Maricon</h3>
+                <p data-i18n="specialist_role">Support Specialist</p>
+              </div>
+            </div>
+            <a class="specialist-chat" id="mariconLink" href="#" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              <span data-i18n="message_maricon">Message Maricon</span>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div class="section-head">
+          <p data-i18n="contact_kicker">CONTACT US</p>
+          <h2 data-i18n="contact_title">Visit or Message Our Office</h2>
+        </div>
+        <div class="contact-grid">
+          <article class="contact-card">
+            <p class="contact-label" data-i18n="contact_office_label">Office Location</p>
+            <p class="contact-value" data-i18n="contact_office_value">2269 Nakar St., San Andres Bukid, Manila, Philippines</p>
+
+            <p class="contact-label" data-i18n="contact_hours_label">Office Hours</p>
+            <p class="contact-value" data-i18n="contact_hours_value">Monday to Saturday, 9:00 AM to 6:00 PM</p>
+
+            <p class="contact-label" data-i18n="contact_phone_label">WhatsApp / Phone</p>
+            <p class="contact-value">+63 918 378 7311</p>
+
+            <a
+              class="contact-map-link"
+              href="https://www.google.com/maps/search/?api=1&query=Khalid+International+Rec.+Agency,+2269+Nakar+St.,+San+Andres+Bukid,+Manila,+Philippines"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-i18n="contact_open_map"
+              >Open in Google Maps</a
+            >
+          </article>
+          <div class="contact-map">
+            <iframe
+              src="https://www.google.com/maps?q=Khalid+International+Rec.+Agency,+2269+Nakar+St.,+San+Andres+Bukid,+Manila,+Philippines&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Khalid International office map"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <a class="floating-whatsapp" id="companyWhatsappFloating" href="#" target="_blank" rel="noopener noreferrer" aria-label="Company WhatsApp">
+      <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+      <span data-i18n="floating_whatsapp">WhatsApp Us</span>
+    </a>
+
+    <div class="mobile-cta-bar">
+      <button id="openApplyBottom" type="button" data-i18n="mobile_apply_now">Apply Now</button>
+      <a id="chatBottomCta" href="#" target="_blank" rel="noopener noreferrer" data-i18n="mobile_chat_specialist">Chat Specialist</a>
+    </div>
+
+    <div class="modal" id="applyModal" aria-hidden="true">
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-close" id="closeApplyModal" aria-label="Close form">&times;</button>
+        <div class="modal-hero">
+          <p class="modal-kicker" data-i18n="modal_kicker">No Placement Fee • Guided Process</p>
+          <h2 id="modalTitle" data-i18n="modal_title">Quick Application Form</h2>
+          <p data-i18n="modal_subtitle">Submit your details and continue to WhatsApp with your specialist.</p>
+        </div>
+
+        <form id="applicationForm" class="application-form">
+          <section class="form-group form-group-personal">
+            <h3 data-i18n="form_group_personal">Personal Info</h3>
+            <label for="fullName" data-i18n="label_full_name">Full Name</label>
+            <input id="fullName" name="fullName" type="text" required />
+
+            <label for="phoneNumber" data-i18n="label_phone">Phone Number</label>
+            <input id="phoneNumber" name="phoneNumber" type="tel" required />
+
+            <label for="age" data-i18n="label_age">Age</label>
+            <input id="age" name="age" type="number" min="18" max="65" required />
+
+            <label for="location" data-i18n="label_location">Current Location</label>
+            <input id="location" name="location" type="text" required />
+          </section>
+
+          <section class="form-group form-group-application">
+            <h3 data-i18n="form_group_application">Application Details</h3>
+            <label for="position" data-i18n="label_position">Position Applying For</label>
+            <select id="position" name="position" required>
+              <option value="" data-i18n="opt_select_position">Select position</option>
+              <option value="Household Worker" data-i18n="opt_household_worker">Household Worker</option>
+              <option value="House Cook" data-i18n="opt_house_cook">House Cook</option>
+              <option value="Nanny" data-i18n="opt_nanny">Nanny</option>
+              <option value="Lady Driver" data-i18n="opt_lady_driver">Lady Driver</option>
+              <option value="OTHER" data-i18n="opt_position_other">OTHER</option>
+            </select>
+            <div class="conditional-field" id="positionOtherWrap">
+              <label for="positionOther" data-i18n="label_position_other">Preferred Position (Specify)</label>
+              <input
+                id="positionOther"
+                name="positionOther"
+                type="text"
+                data-i18n-placeholder="position_other_placeholder"
+                placeholder="Type your preferred position"
+              />
+            </div>
+
+            <label for="country" data-i18n="label_country">Preferred Country</label>
+            <select id="country" name="country" required>
+              <option value="" data-i18n="opt_select_country">Select preferred country</option>
+              <option value="UAE DUBAI" data-i18n="opt_country_uae_dubai">UAE DUBAI</option>
+              <option value="QATAR" data-i18n="opt_country_qatar">QATAR</option>
+              <option value="KUWAIT" data-i18n="opt_country_kuwait">KUWAIT</option>
+              <option value="OTHER" data-i18n="opt_country_other">OTHER</option>
+            </select>
+            <div class="conditional-field" id="countryOtherWrap">
+              <label for="countryOther" data-i18n="label_country_other">Preferred Country (Specify)</label>
+              <input
+                id="countryOther"
+                name="countryOther"
+                type="text"
+                data-i18n-placeholder="country_other_placeholder"
+                placeholder="Type your preferred country"
+              />
+            </div>
+
+            <label for="passportStatus" data-i18n="label_passport">Passport Status</label>
+            <select id="passportStatus" name="passportStatus" required>
+              <option value="" data-i18n="opt_select_passport">Select passport status</option>
+              <option value="Valid Passport" data-i18n="opt_valid_passport">Valid Passport</option>
+              <option value="Expired Passport" data-i18n="opt_expired_passport">Expired Passport</option>
+              <option value="No Passport Yet" data-i18n="opt_no_passport">No Passport Yet</option>
+              <option value="For Renewal" data-i18n="opt_renewal">For Renewal</option>
+            </select>
+          </section>
+
+          <section class="form-group form-group-support">
+            <h3 data-i18n="form_group_support">Support & Notes</h3>
+            <label for="availability" data-i18n="label_availability">Available for Calls</label>
+            <input id="availability" name="availability" type="text" data-i18n-placeholder="availability_placeholder" placeholder="Example: Mon-Fri, 9AM-6PM" required />
+
+            <label for="notes" data-i18n="label_notes">Additional Notes</label>
+            <input id="notes" name="notes" type="text" data-i18n-placeholder="notes_placeholder" placeholder="Optional message" />
+
+            <label for="representative" data-i18n="label_representative">Choose Specialist</label>
+            <select id="representative" name="representative" required>
+              <option value="" data-i18n="opt_select_specialist">Select specialist</option>
+              <option value="Abby">Abby</option>
+              <option value="Jhenny">Jhenny</option>
+              <option value="Maricon">Maricon</option>
+            </select>
+          </section>
+
+          <div class="form-submit-row">
+            <p class="form-trust-line" data-i18n="form_trust_line">No placement fee • DMW Licensed: 088-LB-052424-R</p>
+            <button type="submit" class="submit-button" data-i18n="submit_whatsapp">Send via WhatsApp</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <section class="footer-brand-block">
+          <h2>Khalid International</h2>
+          <p data-i18n="footer_brand_desc">
+            Ethical recruitment support for Filipino workers with free placement
+            processing and specialist guidance.
+          </p>
+        </section>
+
+        <section class="footer-links-block">
+          <h3 data-i18n="footer_quick_links">Quick Links</h3>
+          <a href="#jobs" data-i18n="footer_link_positions">Available Positions</a>
+          <a href="#process" data-i18n="footer_link_process">Application Process</a>
+          <a href="#support" data-i18n="footer_link_support">Specialist Support</a>
+          <a href="./privacy.html" data-i18n="footer_link_privacy">Privacy Policy</a>
+          <a href="./terms.html" data-i18n="footer_link_terms">Terms & Conditions</a>
+        </section>
+
+        <section class="footer-license-block" aria-label="DMW license information">
+          <h3><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> <span data-i18n="footer_license_title">DMW Licensed</span></h3>
+          <p data-i18n="footer_license_desc">This agency is DMW licensed and compliant for overseas recruitment.</p>
+          <p class="license-id">Registry ID: <strong>088-LB-052424-R</strong></p>
+          <a
+            class="verify-license"
+            href="https://dmw.gov.ph/"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n="footer_verify_dmw"
+            >Verify at DMW</a
+          >
+        </section>
+      </div>
+      <p class="footer-copy" data-i18n="footer_copy">© 2026 Khalid International Recruitment Agency</p>
+    </footer>
+
+    <div class="toast" id="statusToast" aria-live="polite" role="status"></div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
