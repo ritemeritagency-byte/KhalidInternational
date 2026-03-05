@@ -543,7 +543,7 @@ function t(key) {
 }
 
 function createWhatsAppUrl(number, message) {
-  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+  return `https://api.whatsapp.com/send?phone=${number}&text=${encodeURIComponent(message)}`;
 }
 
 function setMobileNavState(isOpen) {
