@@ -42,6 +42,7 @@ const positionOtherField = document.getElementById('positionOther');
 const countryField = document.getElementById('country');
 const countryOtherWrap = document.getElementById('countryOtherWrap');
 const countryOtherField = document.getElementById('countryOther');
+const callDateField = document.getElementById('callDate');
 const chatBottomCta = document.getElementById('chatBottomCta');
 const statusToast = document.getElementById('statusToast');
 
@@ -164,8 +165,8 @@ const TRANSLATIONS = {
     opt_expired_passport: 'Expired Passport',
     opt_no_passport: 'No Passport Yet',
     opt_renewal: 'For Renewal',
-    label_availability: 'Available for Calls',
-    availability_placeholder: 'Example: Mon-Fri, 9AM-6PM',
+    label_call_date: 'Preferred Call Date',
+    label_call_time: 'Preferred Call Time',
     label_notes: 'Additional Notes',
     notes_placeholder: 'Optional message',
     label_representative: 'Choose Specialist',
@@ -209,7 +210,8 @@ const TRANSLATIONS = {
     wa_position: 'Position Applying For',
     wa_country: 'Preferred Country',
     wa_passport: 'Passport Status',
-    wa_availability: 'Available for Calls',
+    wa_call_date: 'Preferred Call Date',
+    wa_call_time: 'Preferred Call Time',
     wa_notes: 'Notes',
     wa_no_notes: 'No additional notes',
   },
@@ -322,8 +324,8 @@ const TRANSLATIONS = {
     opt_expired_passport: 'Expired Passport',
     opt_no_passport: 'Wala Pang Passport',
     opt_renewal: 'For Renewal',
-    label_availability: 'Available para sa Tawag',
-    availability_placeholder: 'Halimbawa: Mon-Fri, 9AM-6PM',
+    label_call_date: 'Preferred na Petsa ng Tawag',
+    label_call_time: 'Preferred na Oras ng Tawag',
     label_notes: 'Karagdagang Mensahe',
     notes_placeholder: 'Optional na mensahe',
     label_representative: 'Pumili ng Specialist',
@@ -367,7 +369,8 @@ const TRANSLATIONS = {
     wa_position: 'Ina-applyang Position',
     wa_country: 'Preferred na Bansa',
     wa_passport: 'Passport Status',
-    wa_availability: 'Available sa Tawag',
+    wa_call_date: 'Preferred na Petsa ng Tawag',
+    wa_call_time: 'Preferred na Oras ng Tawag',
     wa_notes: 'Mensahe',
     wa_no_notes: 'Walang dagdag na mensahe',
   },
@@ -480,8 +483,8 @@ const TRANSLATIONS = {
     opt_expired_passport: 'Expired Passport',
     opt_no_passport: 'Wala pay Passport',
     opt_renewal: 'For Renewal',
-    label_availability: 'Available para sa Tawag',
-    availability_placeholder: 'Pananglitan: Mon-Fri, 9AM-6PM',
+    label_call_date: 'Preferred nga Petsa sa Tawag',
+    label_call_time: 'Preferred nga Oras sa Tawag',
     label_notes: 'Dugang nga Notes',
     notes_placeholder: 'Optional nga mensahe',
     label_representative: 'Pilia ang Specialist',
@@ -525,7 +528,8 @@ const TRANSLATIONS = {
     wa_position: 'Position nga Gi-applyan',
     wa_country: 'Preferred nga Nasod',
     wa_passport: 'Passport Status',
-    wa_availability: 'Available sa Tawag',
+    wa_call_date: 'Preferred nga Petsa sa Tawag',
+    wa_call_time: 'Preferred nga Oras sa Tawag',
     wa_notes: 'Notes',
     wa_no_notes: 'Walay dugang nga mensahe',
   },
@@ -576,6 +580,14 @@ function wait(ms) {
   return new Promise((resolve) => {
     window.setTimeout(resolve, ms);
   });
+}
+
+function getTodayIsoDate() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
 }
 
 function showToast(message) {
@@ -907,6 +919,10 @@ document.querySelectorAll('.apply-position').forEach((button) => {
 });
 
 if (applicationForm) {
+  if (callDateField) {
+    callDateField.min = getTodayIsoDate();
+  }
+
   applicationForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -932,7 +948,8 @@ if (applicationForm) {
       `${t('wa_position')}: ${values.position === 'OTHER' ? values.positionOther : values.position}`,
       `${t('wa_country')}: ${values.country === 'OTHER' ? values.countryOther : values.country}`,
       `${t('wa_passport')}: ${values.passportStatus}`,
-      `${t('wa_availability')}: ${values.availability}`,
+      `${t('wa_call_date')}: ${values.callDate}`,
+      `${t('wa_call_time')}: ${values.callTime}`,
       `${t('wa_notes')}: ${values.notes || t('wa_no_notes')}`,
     ].join('\n');
     const whatsappUrl = createWhatsAppUrl(repNumber, message);
@@ -946,8 +963,8 @@ if (applicationForm) {
       targetCountry: values.country === 'OTHER' ? values.countryOther : values.country,
       age: values.age,
       currentLocation: values.location,
-      appointmentDate: values.availability || 'N/A',
-      appointmentTime: 'ASAP',
+      appointmentDate: values.callDate || 'N/A',
+      appointmentTime: values.callTime || 'N/A',
       passportStatus: values.passportStatus,
       assignedAgent: selectedRep,
       notes: `[SPECIALIST: ${selectedRep}] ${values.notes || 'No message'}`,

@@ -580,8 +580,11 @@
 
           <section class="form-group form-group-support">
             <h3 data-i18n="form_group_support">Support & Notes</h3>
-            <label for="availability" data-i18n="label_availability">Available for Calls</label>
-            <input id="availability" name="availability" type="text" data-i18n-placeholder="availability_placeholder" placeholder="Example: Mon-Fri, 9AM-6PM" required />
+            <label for="callDate" data-i18n="label_call_date">Preferred Call Date</label>
+            <input id="callDate" name="callDate" type="date" required />
+
+            <label for="callTime" data-i18n="label_call_time">Preferred Call Time</label>
+            <input id="callTime" name="callTime" type="time" required />
 
             <label for="notes" data-i18n="label_notes">Additional Notes</label>
             <input id="notes" name="notes" type="text" data-i18n-placeholder="notes_placeholder" placeholder="Optional message" />
