@@ -21,11 +21,16 @@ const repLinks = {
   Maricon: document.getElementById('mariconLink'),
 };
 
+const topbar = document.querySelector('.topbar');
+const topNavLinks = document.querySelectorAll('.top-links a');
 const mobileNavToggle = document.getElementById('mobileNavToggle');
 const mobileNavClose = document.getElementById('mobileNavClose');
 const mobileNav = document.getElementById('mobileNav');
 const mobileNavBackdrop = document.getElementById('mobileNavBackdrop');
 const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+const sectionNodes = Array.from(document.querySelectorAll('main section[id]'));
+const heroPanel = document.querySelector('.hero-panel');
+const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 const applyModal = document.getElementById('applyModal');
 const openApplyModal = document.getElementById('openApplyModal');
@@ -45,6 +50,13 @@ const countryOtherField = document.getElementById('countryOther');
 const callDateField = document.getElementById('callDate');
 const chatBottomCta = document.getElementById('chatBottomCta');
 const statusToast = document.getElementById('statusToast');
+const navSectionAliases = {
+  'new-hiring': 'jobs',
+  team: 'jobs',
+  testimonials: 'jobs',
+  materials: 'jobs',
+  videos: 'jobs',
+};
 
 let deferredInstallPrompt = null;
 
@@ -654,6 +666,53 @@ function setMobileNavState(isOpen) {
   }
 }
 
+function setActiveNavLink(activeId) {
+  const resolvedId = navSectionAliases[activeId] || activeId;
+
+  [topNavLinks, mobileNavLinks].forEach((links) => {
+    links.forEach((link) => {
+      const href = link.getAttribute('href') || '';
+      const isActive = href === `#${resolvedId}`;
+      link.classList.toggle('active', isActive);
+      if (isActive) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+    });
+  });
+}
+
+function initScrollUi() {
+  let rafId = 0;
+
+  const syncUi = () => {
+    rafId = 0;
+    const scrollTop = window.scrollY;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = maxScroll > 0 ? Math.min(scrollTop / maxScroll, 1) : 0;
+    const sectionMarker = scrollTop + Math.max(window.innerHeight * 0.24, 140);
+
+    document.documentElement.style.setProperty('--scroll-progress', progress.toFixed(4));
+    if (topbar) topbar.classList.toggle('scrolled', scrollTop > 20);
+
+    if (!sectionNodes.length) return;
+
+    let activeId = sectionNodes[0].id;
+    sectionNodes.forEach((section) => {
+      if (section.offsetTop <= sectionMarker) activeId = section.id;
+    });
+
+    setActiveNavLink(activeId);
+  };
+
+  const requestSync = () => {
+    if (rafId) return;
+    rafId = window.requestAnimationFrame(syncUi);
+  };
+
+  syncUi();
+  window.addEventListener('scroll', requestSync, { passive: true });
+  window.addEventListener('resize', requestSync);
+}
+
 function toggleOtherField(controller, wrapper, input) {
   if (!controller || !wrapper || !input) return;
 
@@ -772,6 +831,50 @@ function setSupportLinks() {
   }
 }
 
+function initHeroInteraction() {
+  if (!heroPanel || reduceMotionQuery.matches) return;
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+  let rafId = 0;
+  let tiltX = 0;
+  let tiltY = 0;
+  let glowX = '50%';
+  let glowY = '34%';
+
+  const render = () => {
+    rafId = 0;
+    heroPanel.style.setProperty('--hero-tilt-x', `${tiltX}deg`);
+    heroPanel.style.setProperty('--hero-tilt-y', `${tiltY}deg`);
+    heroPanel.style.setProperty('--hero-glow-x', glowX);
+    heroPanel.style.setProperty('--hero-glow-y', glowY);
+  };
+
+  const requestRender = () => {
+    if (rafId) return;
+    rafId = window.requestAnimationFrame(render);
+  };
+
+  heroPanel.addEventListener('pointermove', (event) => {
+    const rect = heroPanel.getBoundingClientRect();
+    const ratioX = (event.clientX - rect.left) / rect.width;
+    const ratioY = (event.clientY - rect.top) / rect.height;
+
+    tiltX = (ratioY - 0.5) * -8;
+    tiltY = (ratioX - 0.5) * 8;
+    glowX = `${(ratioX * 100).toFixed(2)}%`;
+    glowY = `${(ratioY * 100).toFixed(2)}%`;
+    requestRender();
+  });
+
+  heroPanel.addEventListener('pointerleave', () => {
+    tiltX = 0;
+    tiltY = 0;
+    glowX = '50%';
+    glowY = '34%';
+    requestRender();
+  });
+}
+
 function applyLanguage(lang) {
   currentLang = TRANSLATIONS[lang] ? lang : 'EN';
   localStorage.setItem(LANG_STORAGE_KEY, currentLang);
@@ -850,8 +953,10 @@ function setModalState(isOpen) {
 }
 
 function initCardReveal() {
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reduceMotion = reduceMotionQuery.matches;
   const revealTargets = [
+    '.section-head',
+    '.trust-strip article',
     '.mission-card',
     '.position-card',
     '.success-photo',
@@ -895,8 +1000,18 @@ function initCardReveal() {
 
 const preferredLang = localStorage.getItem(LANG_STORAGE_KEY);
 if (preferredLang && TRANSLATIONS[preferredLang]) currentLang = preferredLang;
+
+if (!reduceMotionQuery.matches && document.body) {
+  document.body.classList.add('motion-ui');
+  window.requestAnimationFrame(() => {
+    document.body.classList.add('page-ready');
+  });
+}
+
 applyLanguage(currentLang);
 initCardReveal();
+initScrollUi();
+initHeroInteraction();
 
 if (langToggle) {
   langToggle.addEventListener('click', (event) => {
