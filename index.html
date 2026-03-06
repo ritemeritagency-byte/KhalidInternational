@@ -66,14 +66,24 @@
         <strong data-i18n="mobile_menu">Menu</strong>
         <button class="mobile-nav-close" id="mobileNavClose" type="button" aria-label="Close menu">&times;</button>
       </div>
-      <nav class="mobile-nav-links">
-        <a href="#about" data-i18n="nav_about">About</a>
-        <a href="#jobs" data-i18n="nav_positions">Positions</a>
-        <a href="#process" data-i18n="nav_process">Process</a>
-        <a href="#faq" data-i18n="nav_faq">FAQs</a>
-        <a href="#support" data-i18n="nav_support">Support</a>
-        <a href="#contact" data-i18n="nav_contact">Contact</a>
-      </nav>
+      <div class="mobile-nav-content">
+        <nav class="mobile-nav-links">
+          <a href="#about" data-i18n="nav_about">About</a>
+          <a href="#jobs" data-i18n="nav_positions">Positions</a>
+          <a href="#process" data-i18n="nav_process">Process</a>
+          <a href="#faq" data-i18n="nav_faq">FAQs</a>
+          <a href="#support" data-i18n="nav_support">Support</a>
+          <a href="#contact" data-i18n="nav_contact">Contact</a>
+        </nav>
+        <section class="mobile-lang-section" aria-label="Language">
+          <p class="mobile-nav-label" data-i18n="language_title">Language</p>
+          <div class="lang-choice-list">
+            <button class="lang-option" type="button" data-lang="EN">English</button>
+            <button class="lang-option" type="button" data-lang="TL">Tagalog</button>
+            <button class="lang-option" type="button" data-lang="CEB">Cebuano</button>
+          </div>
+        </section>
+      </div>
     </aside>
 
     <main id="home">
@@ -708,6 +718,15 @@
           <a href="#support" data-i18n="footer_link_support">Specialist Support</a>
           <a href="./privacy.html" data-i18n="footer_link_privacy">Privacy Policy</a>
           <a href="./terms.html" data-i18n="footer_link_terms">Terms & Conditions</a>
+        </section>
+
+        <section class="footer-lang-block" aria-label="Language">
+          <h3 data-i18n="language_title">Language</h3>
+          <div class="lang-choice-list">
+            <button class="lang-option" type="button" data-lang="EN">English</button>
+            <button class="lang-option" type="button" data-lang="TL">Tagalog</button>
+            <button class="lang-option" type="button" data-lang="CEB">Cebuano</button>
+          </div>
         </section>
 
         <section class="footer-license-block" aria-label="DMW license information">

@@ -70,6 +70,7 @@ const i18nPlaceholderNodes = document.querySelectorAll('[data-i18n-placeholder]'
 const TRANSLATIONS = {
   EN: {
     lang_label: 'English',
+    language_title: 'Language',
     mobile_menu: 'Menu',
     nav_about: 'About',
     nav_positions: 'Positions',
@@ -259,6 +260,7 @@ const TRANSLATIONS = {
   },
   TL: {
     lang_label: 'Tagalog',
+    language_title: 'Wika',
     mobile_menu: 'Menu',
     nav_about: 'Tungkol',
     nav_positions: 'Trabaho',
@@ -448,6 +450,7 @@ const TRANSLATIONS = {
   },
   CEB: {
     lang_label: 'Cebuano',
+    language_title: 'Pinulongan',
     mobile_menu: 'Menu',
     nav_about: 'About',
     nav_positions: 'Trabaho',
@@ -894,7 +897,9 @@ function applyLanguage(lang) {
   if (langCurrent) langCurrent.textContent = t('lang_label');
 
   langOptions.forEach((option) => {
-    option.classList.toggle('active', option.dataset.lang === currentLang);
+    const isActive = option.dataset.lang === currentLang;
+    option.classList.toggle('active', isActive);
+    option.setAttribute('aria-pressed', String(isActive));
   });
 
   document.documentElement.lang = currentLang === 'EN' ? 'en' : currentLang === 'TL' ? 'tl' : 'ceb';
@@ -1077,6 +1082,7 @@ langOptions.forEach((option) => {
     const selectedLang = option.dataset.lang || 'EN';
     applyLanguage(selectedLang);
     closeLangMenu();
+    if (option.closest('.mobile-nav')) setMobileNavState(false);
   });
 });
 
