@@ -765,6 +765,17 @@ main {
   gap: 0.85rem;
 }
 
+.new-hiring .position-photo {
+  background: linear-gradient(180deg, #f7fbff 0%, #deefff 100%);
+}
+
+.new-hiring .position-photo img {
+  aspect-ratio: 4/5;
+  object-fit: contain;
+  object-position: center;
+  background: linear-gradient(180deg, #f7fbff 0%, #deefff 100%);
+}
+
 .position-card {
   position: relative;
   border-radius: 1rem;
@@ -1955,6 +1966,10 @@ main {
 
   .new-hiring-grid {
     grid-template-columns: 1fr;
+  }
+
+  .new-hiring .position-photo img {
+    aspect-ratio: 4/5;
   }
 
   .position-photo img {
